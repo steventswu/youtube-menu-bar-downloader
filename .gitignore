@@ -4,3 +4,9 @@ dist/
 .DS_Store
 *.zip
 *.dmg
+/artifacts/*/audio/
+/artifacts/*/icons/
+/artifacts/*/generated/
+/artifacts/*/legacy-imagegen/
+/yoto-playlist-downloads*/
+/yoto-track-icons*/

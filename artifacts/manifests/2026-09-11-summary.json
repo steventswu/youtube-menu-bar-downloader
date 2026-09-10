@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-11",
+  "jobs": [
+    {
+      "name": "toddler-bedtime-songs",
+      "audioCount": 18,
+      "iconCount": 18,
+      "targetCardId": "hKBXN",
+      "finalCardChapterCount": 52
+    },
+    {
+      "name": "david-gibb-songbook",
+      "audioCount": 13,
+      "iconCount": 13,
+      "targetCardId": "ai1n1",
+      "finalCardChapterCount": 25
+    },
+    {
+      "name": "pop-song-lullabies",
+      "audioCount": 34,
+      "iconCount": 34,
+      "initialTargetCardId": "ai1n1",
+      "initialTargetChapterCount": 59,
+      "correctedTargetCardId": "hKBXN",
+      "correctedTargetChapterCount": 52,
+      "removedFromInitialTarget": true
+    }
+  ]
+}
