@@ -39,6 +39,19 @@ Audio-only defaults to M4A. MP3 provides broad compatibility; Opus usually provi
 
 For a single video in Video mode, click **Load quality** to enable only resolutions offered by that video. Playlist quality is a per-item ceiling: a 720p item still downloads at 720p when the playlist is set to 1080p.
 
+## Headless mode
+
+The packaged app also supports automation without opening the menu-bar UI:
+
+```sh
+dist/Downloader.app/Contents/MacOS/Downloader \
+  --headless \
+  --url 'https://www.youtube.com/watch?v=VIDEO_ID&list=PLAYLIST_ID' \
+  --output "$PWD/artifacts/job-name"
+```
+
+Headless mode downloads audio in playlist order, emits JSONL events to stdout, and writes a `manifest.json` containing each track's status, output path, SHA-256, and failure details. Options include `--audio-format m4a|mp3|opus`, `--no-playlist`, `--manifest`, `--tools`, and `--max-retries 0...10`. A non-zero exit code indicates a fatal error or a playlist with failed items.
+
 ## Playlists
 
 Paste a `/playlist?list=...` URL or a video URL containing `list=`. The app creates a separate folder, downloads entries in playlist order, and prefixes filenames with a four-digit sequence number. Duplicate entries retain their positions.
@@ -82,7 +95,7 @@ sh scripts/test-media.sh
 ## Project structure
 
 - `Sources/DownloadCore`: URL validation, argument generation, and child-process control
-- `Sources/Downloader`: SwiftUI interface and download workflow
+- `Sources/Downloader`: SwiftUI interface, headless CLI mode, and download workflow
 - `Tests/DownloadCoreTests`: unit tests
 - `scripts/package.py`: self-contained app packaging
 - `scripts/test-media.sh`: local audio and 4K media conversion checks

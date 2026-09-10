@@ -28,4 +28,19 @@ final class CoreTests: XCTestCase {
         XCTAssertLessThanOrEqual(Arguments.filename(String(repeating: "é", count: 200)).utf8.count, 160)
         XCTAssertEqual(Arguments.filename("..."), "YouTube Download")
     }
+
+    func testHeadlessOptionsParsePlaylistAndAudioSettings() throws {
+        let options = try HeadlessOptions.parse(["Downloader", "--headless", "--url", "https://www.youtube.com/watch?v=BaW_jenozKc&list=PL123", "--output", "/tmp/headless", "--audio-format", "mp3", "--manifest", "/tmp/manifest.json", "--max-retries", "4"])
+        XCTAssertEqual(options.input, "https://www.youtube.com/watch?v=BaW_jenozKc&list=PL123")
+        XCTAssertEqual(options.audioFormat, .mp3)
+        XCTAssertTrue(options.includePlaylist)
+        XCTAssertEqual(options.maxRetries, 4)
+        XCTAssertEqual(options.manifestPath?.path, "/tmp/manifest.json")
+    }
+
+    func testHeadlessOptionsCanDisablePlaylist() throws {
+        let options = try HeadlessOptions.parse(["--headless", "https://youtu.be/BaW_jenozKc", "--output", "/tmp/headless", "--no-playlist"])
+        XCTAssertFalse(options.includePlaylist)
+        XCTAssertEqual(options.audioFormat, .m4a)
+    }
 }

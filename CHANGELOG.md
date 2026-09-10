@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added `Downloader.app --headless` for scripted video and playlist audio downloads with JSONL progress and per-track manifests.
+
 ## 1.1.0 - 2026-09-10
 
 - Added public YouTube playlist downloads.

@@ -1,10 +1,16 @@
 import SwiftUI
 import AppKit
 import UserNotifications
+import Darwin
 import DownloadCore
 
 @main struct DownloaderApp: App {
     @StateObject private var model = DownloadModel()
+    init() {
+        if CommandLine.arguments.contains("--headless") {
+            Darwin.exit(Int32(HeadlessCLI.run()))
+        }
+    }
     var body: some Scene {
         MenuBarExtra("Downloader", systemImage: "arrow.down.circle") {
             Panel(model: model)
