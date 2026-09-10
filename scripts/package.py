@@ -27,7 +27,7 @@ shutil.copy2(binary, APP / 'Contents/MacOS/Downloader')
 shutil.copy2(ROOT / '.build/local/libDownloadCore.dylib', APP / 'Contents/Frameworks/libDownloadCore.dylib')
 run('codesign', '--force', '--sign', '-', APP / 'Contents/Frameworks/libDownloadCore.dylib')
 with (APP / 'Contents/Info.plist').open('wb') as f:
-    plistlib.dump(dict(CFBundleExecutable='Downloader', CFBundleIdentifier='local.steventswu.Downloader', CFBundleName='Downloader', CFBundlePackageType='APPL', CFBundleShortVersionString='1.1.0', CFBundleVersion='2', LSMinimumSystemVersion='13.0', LSUIElement=True, NSHighResolutionCapable=True), f)
+    plistlib.dump(dict(CFBundleExecutable='Downloader', CFBundleIdentifier='local.steventswu.Downloader', CFBundleName='Downloader', CFBundlePackageType='APPL', CFBundleShortVersionString='1.2.0', CFBundleVersion='3', LSMinimumSystemVersion='13.0', LSUIElement=True, NSHighResolutionCapable=True), f)
 
 # Resolve the release once; verify the executable against that release's checksum.
 import json

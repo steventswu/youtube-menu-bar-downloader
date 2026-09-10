@@ -1,6 +1,6 @@
 {
   "name": "youtube-to-yoto",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Safe YouTube playlist to Yoto card workflows with headless downloads, resumable jobs, progress tracking, card guards, and Yoto-managed icon resolution.",
   "author": {
     "name": "Local developer"

@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.2.0 - 2026-09-11
 
 - Added `Downloader.app --headless` for scripted video and playlist audio downloads with JSONL progress and per-track manifests.
+- Added the shareable YouTube → Yoto Playlist Studio plugin documentation and manifest schema.
 
 ## 1.1.0 - 2026-09-10
 

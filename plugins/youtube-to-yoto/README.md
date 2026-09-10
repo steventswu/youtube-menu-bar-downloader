@@ -28,7 +28,7 @@ Card IDs, user icon IDs, audio files, or local personal paths.
 - A built or released `Downloader.app`.
 - Node.js 20 or newer.
 - A Yoto account and a Yoto Developer Public Client.
-- The local `YotoMCP` server built from the companion repository.
+- `yoto-mcp-local` v0.2.0 or newer, built from the companion repository.
 - A public YouTube video or playlist that you are authorized to download.
 
 The plugin is intentionally an orchestration layer. It does not bundle the
@@ -42,6 +42,7 @@ git clone https://github.com/steventswu/yoto-mcp-local.git yoto-mcp-local
 cd downloader
 
 cd ../yoto-mcp-local
+git checkout v0.2.0
 npm ci
 npm run build
 cd ../downloader
