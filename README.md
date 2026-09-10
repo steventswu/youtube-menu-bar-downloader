@@ -52,6 +52,18 @@ dist/Downloader.app/Contents/MacOS/Downloader \
 
 Headless mode downloads audio in playlist order, emits JSONL events to stdout, and writes a `manifest.json` containing each track's status, output path, SHA-256, and failure details. Options include `--audio-format m4a|mp3|opus`, `--no-playlist`, `--manifest`, `--tools`, and `--max-retries 0...10`. A non-zero exit code indicates a fatal error or a playlist with failed items.
 
+## YouTube → Yoto Playlist Studio
+
+This repository also contains a shareable Codex plugin for importing downloaded
+playlist audio into Yoto cards:
+
+- [Plugin README](plugins/youtube-to-yoto/README.md)
+- [Plugin directory](plugins/youtube-to-yoto)
+
+The plugin is an orchestration layer. It requires a separately built
+`Downloader.app` and the local `YotoMCP` server. It does not contain OAuth
+tokens, Yoto Card IDs, user icons, audio, or task artifacts.
+
 ## Playlists
 
 Paste a `/playlist?list=...` URL or a video URL containing `list=`. The app creates a separate folder, downloads entries in playlist order, and prefixes filenames with a four-digit sequence number. Duplicate entries retain their positions.

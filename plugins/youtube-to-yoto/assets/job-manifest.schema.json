@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "jobId", "targetCardId", "tracks"],
+  "properties": {
+    "version": { "const": 1 },
+    "jobId": { "type": "string", "minLength": 1 },
+    "sourcePlaylistUrl": { "type": "string", "format": "uri" },
+    "sourcePlaylistId": { "type": "string" },
+    "targetCardId": { "type": "string", "minLength": 1 },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["index", "videoId", "title", "status", "retryCount"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "videoId": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "audioPath": { "type": "string" },
+          "audioSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "iconMediaId": { "type": "string" },
+          "transcodedAudioHash": { "type": "string" },
+          "status": { "enum": ["pending", "downloaded", "uploaded", "attached", "failed"] },
+          "retryCount": { "type": "integer", "minimum": 0 },
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}
